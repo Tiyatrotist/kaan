@@ -1,5 +1,5 @@
 // Küçük DOM yardımcıları: öğe oluşturma, simge, Kaan yazısı/işareti (taş dolgulu canvas), hareket tercihi, beklemeler.
-import { TasCizimi } from './tas.js?v=20261015103445';
+import { TasCizimi } from './tas.js?v=20261015105813';
 
 const SVG_AD = 'http://www.w3.org/2000/svg';
 

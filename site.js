@@ -1,13 +1,13 @@
 // Tanıtım sitesi davranışı: logo (taş dolgulu), tema, mobil menü, belirme animasyonu, canlı durum, beta formları.
-import { kaanYazisi } from './gorunum.js?v=20261015103445';
-import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015103445';
-import { menuAc } from './menu.js?v=20261015103445';
+import { kaanYazisi } from './gorunum.js?v=20261015105813';
+import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015105813';
+import { menuAc } from './menu.js?v=20261015105813';
 
 // ---- Ayarlar (yayın aşamasında değişecek)
-const UYGULAMA_ADRESI = 'beta.html'; // yayında: uygulamanın tünel/alan adı adresi
+const UYGULAMA_ADRESI = 'https://kaan.shares.zrok.io/'; // yayında: uygulamanın tünel/alan adı adresi
 const API_KOKU = ''; // canlı durum için API kökü; yayında 'https://<tünel>/v1' (CORS izni gerekir) ya da '' (kapalı)
 const BASVURU_ACIK = false; // bekleme listesi açık mı (arka uç hazır olunca true)
-const DAVET_ACIK = false; // davet koduyla giriş açık mı (Faz 1)
+const DAVET_ACIK = true; // davet koduyla giriş açık mı (Faz 1)
 
 const $ = (id) => document.getElementById(id);
 temaBaslat();

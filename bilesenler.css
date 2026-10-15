@@ -421,3 +421,29 @@ kbd { padding: 1px 7px; font: 500 0.75rem/1.5 var(--yazi-arayuz); background: va
   .sohbet-ac, .yeni-sohbet, .menu-oge { min-height: 2.75rem; }
   .atla { min-height: 2.75rem; }
 }
+
+/* ---------- Beta girişi (davet kodu), kalan hak, hesap kartı ---------- */
+.giris { position: fixed; inset: 0; z-index: 65; display: grid; place-items: center; padding: 16px; background: var(--zemin); }
+.giris.kapaniyor { animation: bos-cik 0.42s var(--ease-yumusak) both; }
+.giris-kart { width: min(100%, 27rem); padding: 2rem 1.8rem 1.6rem; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 26px; box-shadow: var(--golge); animation: mesaj-gir 0.7s var(--ease-cikis) backwards; }
+.giris-kart.salla { animation: salla 0.5s var(--ease-cikis) 1; }
+.giris-logo { width: 9rem; margin: 0 0 1.4rem -0.2rem; }
+.giris-kart h2 { margin: 0 0 0.4rem; font: 600 1.6rem/1.2 var(--yazi-baslik); letter-spacing: -0.015em; }
+.giris-aciklama { margin: 0 0 1.4rem; color: var(--murekkep-2); line-height: 1.6; }
+.giris-kart label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 0.9375rem; }
+.giris-kart input { display: block; width: 100%; min-height: 3rem; padding: 0 14px; border: 1px solid var(--sinir); border-radius: 14px; background: var(--yuzey); font: 500 1.0625rem/1 var(--yazi-arayuz); letter-spacing: 0.06em; text-transform: uppercase; outline: none; transition: border-color var(--sure-hizli), box-shadow var(--sure); }
+.giris-kart input::placeholder { letter-spacing: 0.06em; color: var(--murekkep-2); }
+.giris-kart input:focus { border-color: var(--vurgu); box-shadow: 0 0 0 3px color-mix(in srgb, var(--vurgu) 24%, transparent); }
+.giris-dugme { width: 100%; min-height: 3rem; margin-top: 12px; border-radius: 14px; background: var(--vurgu); color: var(--vurgu-ustu); font: 500 1rem/1 var(--yazi-arayuz); transition: filter var(--sure-hizli), transform var(--sure) var(--ease-yay); }
+.giris-dugme:hover { filter: brightness(1.08); }
+.giris-dugme:active { transform: scale(0.98); }
+.giris-dugme:disabled { opacity: 0.6; cursor: progress; }
+.giris-ileti { margin: 12px 0 0; color: var(--hata); font-size: 0.9375rem; line-height: 1.5; }
+.giris-alt { margin: 1.4rem 0 0; padding-top: 1rem; border-top: 1px solid var(--cizgi); font-size: 0.875rem; color: var(--murekkep-2); }
+.giris-alt a { color: var(--vurgu); text-underline-offset: 3px; }
+.kota { font-size: 0.8125rem; line-height: 1.5; color: var(--murekkep-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.kota[data-az] { color: var(--hata); font-weight: 500; }
+.hesap-karti { padding: 14px 16px; border-radius: 16px; background: var(--yuzey-2); }
+.hesap-karti p { margin: 0; }
+.hesap-karti .metin-dugme { justify-self: start; margin-left: -0.85rem; }
+@media (max-width: 599px) { .yazi-alt { flex-wrap: wrap; } .kota { order: -1; } }
