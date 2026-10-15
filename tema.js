@@ -1,5 +1,5 @@
 // Tema: sistem / açık / koyu. Elle seçim localStorage'da; geçiş tıklanan noktadan dairesel açılır (destekleniyorsa).
-import { azHareket } from './gorunum.js?v=20261015105813';
+import { azHareket } from './gorunum.js?v=20261015111540';
 
 const ANAHTAR = 'kaan.tema';
 const kok = document.documentElement;

@@ -1,7 +1,7 @@
 // Tanıtım sitesi davranışı: logo (taş dolgulu), tema, mobil menü, belirme animasyonu, canlı durum, beta formları.
-import { kaanYazisi } from './gorunum.js?v=20261015105813';
-import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015105813';
-import { menuAc } from './menu.js?v=20261015105813';
+import { kaanYazisi } from './gorunum.js?v=20261015111540';
+import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015111540';
+import { menuAc } from './menu.js?v=20261015111540';
 
 // ---- Ayarlar (yayın aşamasında değişecek)
 const UYGULAMA_ADRESI = 'https://kaan.shares.zrok.io/'; // yayında: uygulamanın tünel/alan adı adresi

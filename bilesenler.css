@@ -423,8 +423,8 @@ kbd { padding: 1px 7px; font: 500 0.75rem/1.5 var(--yazi-arayuz); background: va
 }
 
 /* ---------- Beta girişi (davet kodu), kalan hak, hesap kartı ---------- */
-.giris { position: fixed; inset: 0; z-index: 65; display: grid; place-items: center; padding: 16px; background: var(--zemin); }
-.giris.kapaniyor { animation: bos-cik 0.42s var(--ease-yumusak) both; }
+.giris-ekrani { position: fixed; inset: 0; z-index: 65; display: grid; place-items: center; padding: 16px; background: var(--zemin); }
+.giris-ekrani.kapaniyor { animation: bos-cik 0.42s var(--ease-yumusak) both; }
 .giris-kart { width: min(100%, 27rem); padding: 2rem 1.8rem 1.6rem; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 26px; box-shadow: var(--golge); animation: mesaj-gir 0.7s var(--ease-cikis) backwards; }
 .giris-kart.salla { animation: salla 0.5s var(--ease-cikis) 1; }
 .giris-logo { width: 9rem; margin: 0 0 1.4rem -0.2rem; }
