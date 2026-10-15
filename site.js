@@ -1,7 +1,7 @@
 // Tanıtım sitesi davranışı: logo (taş dolgulu), tema, mobil menü, belirme animasyonu, canlı durum, beta formları.
-import { kaanYazisi } from './gorunum.js?v=20261015094214';
-import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015094214';
-import { menuAc } from './menu.js?v=20261015094214';
+import { kaanYazisi } from './gorunum.js?v=20261015103445';
+import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015103445';
+import { menuAc } from './menu.js?v=20261015103445';
 
 // ---- Ayarlar (yayın aşamasında değişecek)
 const UYGULAMA_ADRESI = 'beta.html'; // yayında: uygulamanın tünel/alan adı adresi
