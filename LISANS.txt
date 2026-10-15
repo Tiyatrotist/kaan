@@ -1,0 +1,6 @@
+Bu klasördeki yazı tipleri SIL Open Font License 1.1 ile dağıtılır:
+- Red Hat Text / Red Hat Display (Red Hat, Inc.)
+- Noto Serif (Google / Noto Projesi)
+Dosyalar sunucudaki sistem paketlerinden (cockpit, google-noto-vf-fonts) olduğu gibi kopyalanmıştır.
+
+Noto Serif dosyası pyftsubset/fonttools ile yalnızca Latin + Latin Ek-A (Türkçe) + noktalama kümesine ve 400–700 ağırlık aralığına indirilmiştir; ham yazı tipi sistem paketinden (google-noto-vf-fonts) alınmıştır.

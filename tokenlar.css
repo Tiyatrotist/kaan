@@ -1,0 +1,79 @@
+/* Tasarım belirteçleri: "Firuze" paleti (açık ve koyu: nötr pastel gri; firuze yalnızca vurgu ve taşta), yazı tipleri, hareket eğrileri. Renkler yalnızca burada tanımlanır.
+   Esin: firuze taşı (turkuaz zemin, kahverengi matris damarı) ve gümüş işçiliği. */
+:root {
+  color-scheme: light;
+  /* Açık tema — nötr pastel gri (koyu temayla aynı dil); firuze yalnızca vurgu ve taşta */
+  --zemin: #F3F4F4;
+  --yuzey: #FCFCFC;
+  --yuzey-2: #E7E9E9;
+  --murekkep: #1A1C1D;
+  --murekkep-2: #586062;
+  --cizgi: #DADDDD;
+  --cizgi-guclu: #BEC3C4;
+  --sinir: #868D8F; /* girdi kenarlığı: ≥3:1 (WCAG 1.4.11) */
+  --vurgu: #066B65;
+  --vurgu-ustu: #F0FFFD;
+  --mercan: #E4572E;
+  --hata: #B3361A;
+  --tamam: #1F8A5B;
+  --matris: #4A3322;
+  --perde: rgba(0, 0, 0, 0.4);
+  --golge: 0 1px 2px rgba(0, 0, 0, 0.06), 0 10px 30px rgba(0, 0, 0, 0.09);
+  --tas-ustu: #03201E; /* taş üzerindeki simge rengi */
+
+  --yazi-arayuz: "Kaan Metin", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --yazi-baslik: "Kaan Baslik", "Kaan Metin", system-ui, sans-serif;
+  --yazi-yazi: "Kaan Yazi", "Noto Serif", Georgia, "Times New Roman", serif;
+
+  --ease-cikis: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-yay: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-yumusak: cubic-bezier(0.45, 0, 0.2, 1);
+  --sure-hizli: 0.18s;
+  --sure: 0.35s;
+  --sure-yavas: 0.7s;
+
+  --kenar-genislik: 18rem;
+  --sutun: 46rem;
+}
+
+/* Koyu tema — "gece": firuze gecesi; sistem koyuysa ve elle "açık" seçilmediyse */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="acik"]) {
+    color-scheme: dark;
+    --zemin: #17181A;
+    --yuzey: #1F2123;
+    --yuzey-2: #292C2E;
+    --murekkep: #ECEFEF;
+    --murekkep-2: #A2A8AB;
+    --cizgi: #2D3032;
+    --cizgi-guclu: #404447;
+    --sinir: #6F767A;
+    --vurgu: #4FD0BF;
+    --vurgu-ustu: #06201D;
+    --mercan: #FF7A55;
+    --hata: #FF8F6D;
+    --tamam: #5CCB8A;
+    --perde: rgba(0, 0, 0, 0.6);
+    --golge: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 34px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Koyu tema — elle seçildiğinde */
+:root[data-tema="koyu"] {
+  color-scheme: dark;
+  --zemin: #17181A;
+  --yuzey: #1F2123;
+  --yuzey-2: #292C2E;
+  --murekkep: #ECEFEF;
+  --murekkep-2: #A2A8AB;
+  --cizgi: #2D3032;
+  --cizgi-guclu: #404447;
+  --sinir: #6F767A;
+  --vurgu: #4FD0BF;
+  --vurgu-ustu: #06201D;
+  --mercan: #FF7A55;
+  --hata: #FF8F6D;
+  --tamam: #5CCB8A;
+  --perde: rgba(0, 0, 0, 0.6);
+  --golge: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 34px rgba(0, 0, 0, 0.5);
+}

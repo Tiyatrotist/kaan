@@ -1,0 +1,6 @@
+/* Yerel yazı tipleri (harici kaynak yok). Hepsi SIL Open Font License; Türkçe harfler (ğ ı ş İ Ş Ğ ç ö ü â) tam desteklenir. Noto Serif, Latin + Latin-Ek-A kümesine küçültülmüştür (811 KB → 28 KB). */
+@font-face{font-family:"Kaan Metin";src:url("RedHatText-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Kaan Metin";src:url("RedHatText-Medium.woff2") format("woff2");font-weight:500 600;font-style:normal;font-display:swap}
+@font-face{font-family:"Kaan Baslik";src:url("RedHatDisplay-Medium.woff2") format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
+@font-face{font-family:"Kaan Baslik";src:url("RedHatDisplay-Bold.woff2") format("woff2");font-weight:600 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Kaan Yazi";src:url("NotoSerif-Latin-Degisken.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}

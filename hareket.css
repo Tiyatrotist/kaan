@@ -1,0 +1,86 @@
+/* Hareket: tüm keyframe'ler ve giriş animasyonları. Hareket azaltma tercihi en altta. */
+
+@keyframes nabiz { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.55; } }
+@keyframes halka { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes salla { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-3px); } 45% { transform: translateX(3px); } 70% { transform: translateX(-2px); } }
+
+
+/* Açılıştaki ilk kare logosu: harfler tek tek yükselir (JS yüklenmeden de çalışır) */
+.yedek-harf { transform-box: fill-box; transform-origin: 50% 100%; animation: yedek-gir 1s var(--ease-yay) backwards; animation-delay: calc(0.1s + var(--s, 0) * 0.11s); }
+@keyframes yedek-gir { 0% { opacity: 0; transform: translateY(42px) scale(0.85); } 55% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+@keyframes yazi-nefes { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+.kaan-yazi[data-nefes] { animation: yazi-nefes 3.6s ease-in-out infinite; }
+
+/* Akan cevap: her parça mürekkep gibi yayılıp kurur (bulanık + vurgu rengi → yazı rengi) */
+.parca { animation: murekkep-kuru 1.15s var(--ease-cikis) backwards; }
+@keyframes murekkep-kuru {
+  0% { opacity: 0; filter: blur(5px); color: var(--vurgu); }
+  35% { opacity: 1; filter: blur(0); color: var(--vurgu); }
+  100% { opacity: 1; filter: blur(0); color: var(--murekkep); }
+}
+.imlec { animation: imlec-nabiz 1.1s ease-in-out infinite; }
+@keyframes imlec-nabiz { 0%, 100% { transform: scale(0.7); opacity: 0.6; } 50% { transform: scale(1.25); opacity: 1; } }
+
+/* Mesaj girişleri */
+.mesaj.gir { animation: mesaj-gir 0.7s var(--ease-cikis) backwards; }
+@keyframes mesaj-gir { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.mesaj.gir-gec { animation: mesaj-gir 0.6s var(--ease-cikis) backwards; animation-delay: calc(var(--sira, 0) * 55ms); }
+.mesaj.cik { animation: mesaj-cik 0.35s var(--ease-yumusak) both; }
+@keyframes mesaj-cik { to { opacity: 0; transform: translateY(-8px); } }
+.mesaj-araclar.gir, .mesaj-not.gir { animation: mesaj-gir 0.6s var(--ease-cikis) backwards; }
+.etiket-durum.gir { animation: etiket-gir 0.5s var(--ease-cikis) backwards; }
+@keyframes etiket-gir { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+
+/* Boş durum */
+.bos-alt { animation: mesaj-gir 0.9s var(--ease-cikis) backwards; animation-delay: 0.5s; }
+.oneri { animation: mesaj-gir 0.8s var(--ease-cikis) backwards; animation-delay: calc(0.55s + var(--sira, 0) * 90ms); }
+.bos.cikiyor { animation: bos-cik 0.45s var(--ease-yumusak) both; pointer-events: none; }
+@keyframes bos-cik { to { opacity: 0; transform: translateY(-16px) scale(0.98); } }
+
+/* Kenar çubuğu öğeleri */
+.sohbet-ogesi.gir { animation: oge-gir 0.6s var(--ease-cikis) backwards; animation-delay: calc(var(--sira, 0) * 35ms); }
+@keyframes oge-gir { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+.sohbet-ogesi.cik { animation: oge-cik 0.4s var(--ease-yumusak) both; overflow: hidden; }
+@keyframes oge-cik { 60% { opacity: 0; transform: translateX(-16px); } 100% { opacity: 0; transform: translateX(-16px); height: 0; min-height: 0; } }
+.ust-baslik.degis { animation: baslik-degis 0.5s var(--ease-cikis) backwards; }
+@keyframes baslik-degis { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Geri sayım çubuğu (meşgul → yeniden deneme) */
+.geri-sayim > i { animation: daral var(--sure-gs, 4s) linear forwards; }
+@keyframes daral { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* Ayarlar penceresi */
+.ayarlar[open] { animation: pencere-ac 0.5s var(--ease-yay) backwards; }
+.ayarlar[open]::backdrop { animation: perde-ac 0.4s var(--ease-yumusak) backwards; }
+.ayarlar.kapaniyor { animation: pencere-kapa 0.25s var(--ease-yumusak) both; }
+.ayarlar.kapaniyor::backdrop { animation: perde-kapa 0.25s var(--ease-yumusak) both; }
+@keyframes pencere-ac { from { opacity: 0; transform: translateY(24px) scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes pencere-kapa { to { opacity: 0; transform: translateY(12px) scale(0.97); } }
+@keyframes perde-ac { from { opacity: 0; } to { opacity: 1; } }
+@keyframes perde-kapa { to { opacity: 0; } }
+
+/* Açılır menü */
+.menu:not(.kapaniyor) { animation: menu-ac 0.4s var(--ease-yay) backwards; }
+.menu:not(.kapaniyor) .menu-oge { animation: menu-oge 0.45s var(--ease-cikis) backwards; animation-delay: calc(50ms + var(--sira, 0) * 40ms); }
+.menu.kapaniyor { animation: menu-kapa 0.15s var(--ease-yumusak) both; }
+@keyframes menu-ac { from { opacity: 0; transform: translateY(10px) scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes menu-kapa { to { opacity: 0; transform: scale(0.97); } }
+@keyframes menu-oge { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.duzenle-kutu { animation: menu-oge 0.4s var(--ease-cikis) backwards; }
+details[open] > .gelismis-ic { animation: menu-oge 0.4s var(--ease-cikis) backwards; }
+
+/* Alta git düğmesi */
+.alta-git:not([hidden]) { animation: alta-gir 0.5s var(--ease-yay) backwards; }
+@keyframes alta-gir { from { opacity: 0; transform: translate(-50%, 12px) scale(0.9); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+
+/* Tema geçişi: tıklanan noktadan dairesel açılma (JS animasyonu yürütür) */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+/* ---------- Hareket azaltma: yalnızca kısa solma kalır, dönen/akan/zıplayan hareket yok ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
+  .parca { animation: none; }
+  .imlec { animation: none; }
+}
