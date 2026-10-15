@@ -13,6 +13,7 @@
   position: relative;
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);   /* örtük "auto" sütun, kırılmayan bir satırla (uzun başlık vb.) telefonda sayfayı genişletiyordu */
   min-width: 0;
   height: 100dvh;
 }
@@ -264,10 +265,15 @@
 .acilis-ic { display: grid; justify-items: center; gap: 1.1rem; padding: 0 16px; text-align: center; }
 .acilis-isaret { position: relative; width: min(80vw, 27rem); }
 .acilis-isaret canvas { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
-.acilis-yedek { display: block; width: 100%; height: auto; overflow: visible; transition: opacity 0.9s var(--ease-yumusak) 0.35s; }
+.acilis-yedek { display: block; width: 100%; height: auto; overflow: visible; }
 .acilis-yedek .yedek-harf path { fill: url(#firuze-gradyan); }
 .acilis-yedek .yedek-n path { fill: none; stroke: url(#firuze-gradyan); stroke-width: 22; stroke-linejoin: miter; stroke-miterlimit: 4; }
-.acilis-isaret:has(canvas[data-hazir]) .acilis-yedek { opacity: 0; }
+/* Taşlı logo, düz logonun harf yükselişi bitene dek gizli bekler; sonra aynı geometrinin üstünde yerinde belirir, düz logo ardından söner */
+.acilis-isaret .tas[data-hazir] { opacity: 0; }
+.acilis-isaret[data-yedek-bitti] .tas[data-hazir] { opacity: 1; transition-duration: 0.6s; }
+.acilis-isaret[data-yedek-bitti]:has(canvas[data-hazir]) .acilis-yedek { opacity: 0; transition: opacity 0.25s linear 0.6s; }
+.acilis.ucuyor .acilis-isaret .tas { opacity: 1; transition: none; }      /* uçuşta yalnızca taşlı logo: ikinci kopya kalmaz */
+.acilis.ucuyor .acilis-yedek { opacity: 0; transition: none; }
 .acilis.ucuyor { background: transparent; transition: background-color 0.7s var(--ease-yumusak); }
 .acilis.ucuyor[data-gizli] { transform: none; }
 .acilis.ucuyor .acilis-yazi { opacity: 0; transition: opacity 0.35s; }
@@ -345,6 +351,46 @@ input[type="range"] { width: 100%; height: 1.75rem; accent-color: var(--vurgu); 
 .efor-dugme:hover, .efor-dugme[aria-expanded="true"] { background: var(--yuzey-2); color: var(--murekkep); }
 .efor-dugme:active { transform: scale(0.95); }
 .efor-dugme .simge { width: 1.05rem; height: 1.05rem; }
+
+/* ---------- Günlük hak halkası (gönder düğmesinin yanında): içi boş halka, dolu kısım = harcanan ---------- */
+.arac-sag { display: flex; align-items: center; gap: 4px; flex: none; }
+.hak { position: relative; }
+.hak-halka { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; transition: background-color var(--sure-hizli), transform var(--sure) var(--ease-yay); }
+.hak-halka:hover, .hak[data-acik] .hak-halka { background: var(--yuzey-2); }
+.hak-halka:active { transform: scale(0.92); }
+.hak-halka svg { width: 1.45rem; height: 1.45rem; transform: rotate(-90deg); overflow: visible; }
+.hak-iz, .hak-dolu { fill: none; stroke-width: 2.6; }
+.hak-iz { stroke: var(--cizgi-guclu); }
+.hak-dolu { stroke: var(--vurgu); stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 0.9s var(--ease-cikis), stroke var(--sure); }
+.hak[data-az] .hak-dolu { stroke: var(--mercan); }
+.hak[data-bitti] .hak-dolu { stroke: var(--hata); }
+.hak.degisti .hak-halka svg { animation: hak-nabiz 0.7s var(--ease-yay); }
+@keyframes hak-nabiz { 40% { transform: rotate(-90deg) scale(1.18); } }
+.hak-ayrinti {
+  position: absolute; right: -2.75rem; bottom: calc(100% + 12px); z-index: 30; width: 17.5rem; padding: 14px 16px 12px;
+  background: var(--yuzey); border: 1px solid var(--cizgi-guclu); border-radius: 18px; box-shadow: var(--golge);
+  opacity: 0; visibility: hidden; transform: translateY(6px) scale(0.97); transform-origin: calc(100% - 3.9rem) 100%;
+  transition: opacity 0.18s var(--ease-yumusak), transform 0.25s var(--ease-yay), visibility 0s linear 0.18s; pointer-events: none;
+}
+.hak-ayrinti::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 14px; } /* üzerine gelirken boşlukta kapanmasın */
+.hak:hover .hak-ayrinti, .hak:focus-within .hak-ayrinti, .hak[data-acik] .hak-ayrinti {
+  opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition-delay: 0.08s, 0.08s, 0s;
+}
+.hak-ust { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.hak-ust strong { font: 600 0.9375rem/1.3 var(--yazi-arayuz); }
+.hak-yuzde { font: 600 1.25rem/1 var(--yazi-baslik); color: var(--vurgu); font-variant-numeric: tabular-nums; }
+.hak[data-az] .hak-yuzde { color: var(--mercan); }
+.hak[data-bitti] .hak-yuzde { color: var(--hata); }
+.hak-cubuk { position: relative; height: 5px; margin: 10px 0 12px; border-radius: 999px; background: var(--yuzey-2); overflow: hidden; }
+.hak-cubuk i { position: absolute; inset: 0; border-radius: inherit; background: var(--vurgu); transform-origin: left; transition: transform 0.9s var(--ease-cikis); }
+.hak[data-az] .hak-cubuk i { background: var(--mercan); }
+.hak[data-bitti] .hak-cubuk i { background: var(--hata); }
+.hak-ayrinti dl { display: grid; gap: 6px; margin: 0; }
+.hak-satir { display: flex; justify-content: space-between; gap: 12px; font-size: 0.8125rem; }
+.hak-satir dt { color: var(--murekkep-2); }
+.hak-satir dd { margin: 0; text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
+.hak-satir dd small { font-weight: 400; color: var(--murekkep-2); font-size: 0.75rem; }
+.hak-not { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--cizgi); font-size: 0.75rem; line-height: 1.5; color: var(--murekkep-2); }
 
 /* ---------- "Kaynaklarla cevapla" anahtarı (efor seçicinin yanında) ---------- */
 .arac-sol { display: flex; align-items: center; gap: 2px; min-width: 0; }
@@ -480,6 +526,7 @@ kbd { padding: 1px 7px; font: 500 0.75rem/1.5 var(--yazi-arayuz); background: va
   .efor-dugme { min-height: 2.75rem; }
   .kaynak-dugme { min-height: 2.75rem; }
   .kaynak-bag { min-height: 2.25rem; }
+  .hak-halka { width: 2.75rem; height: 2.75rem; }
   .anahtar { width: 3.1rem; height: 1.85rem; }
   .anahtar i { width: calc(1.85rem - 6px); height: calc(1.85rem - 6px); }
   .anahtar[aria-checked="true"] i { transform: translateX(1.25rem); }
@@ -509,11 +556,8 @@ kbd { padding: 1px 7px; font: 500 0.75rem/1.5 var(--yazi-arayuz); background: va
 .giris-alt { margin: 1.4rem 0 0; padding-top: 1rem; border-top: 1px solid var(--cizgi); font-size: 0.875rem; color: var(--murekkep-2); }
 .giris-alt a { color: var(--vurgu); text-underline-offset: 3px; }
 .kota { font-size: 0.8125rem; line-height: 1.5; color: var(--murekkep-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.kota { display: inline-flex; align-items: center; gap: 7px; }
-.kota-cubuk { position: relative; display: block; width: 2.2rem; height: 4px; border-radius: 999px; background: var(--cizgi-guclu); overflow: hidden; flex: none; }
-.kota-cubuk i { position: absolute; inset: 0; border-radius: inherit; background: var(--vurgu); transform-origin: left; transition: transform 0.8s var(--ease-cikis); }
 .kota[data-az] { color: var(--hata); font-weight: 500; }
-.kota[data-az] .kota-cubuk i { background: var(--hata); }
+
 .hesap-karti { padding: 14px 16px; border-radius: 16px; background: var(--yuzey-2); }
 .hesap-karti p { margin: 0; }
 .hesap-karti .metin-dugme { justify-self: start; margin-left: -0.85rem; }
