@@ -509,7 +509,11 @@ kbd { padding: 1px 7px; font: 500 0.75rem/1.5 var(--yazi-arayuz); background: va
 .giris-alt { margin: 1.4rem 0 0; padding-top: 1rem; border-top: 1px solid var(--cizgi); font-size: 0.875rem; color: var(--murekkep-2); }
 .giris-alt a { color: var(--vurgu); text-underline-offset: 3px; }
 .kota { font-size: 0.8125rem; line-height: 1.5; color: var(--murekkep-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.kota { display: inline-flex; align-items: center; gap: 7px; }
+.kota-cubuk { position: relative; display: block; width: 2.2rem; height: 4px; border-radius: 999px; background: var(--cizgi-guclu); overflow: hidden; flex: none; }
+.kota-cubuk i { position: absolute; inset: 0; border-radius: inherit; background: var(--vurgu); transform-origin: left; transition: transform 0.8s var(--ease-cikis); }
 .kota[data-az] { color: var(--hata); font-weight: 500; }
+.kota[data-az] .kota-cubuk i { background: var(--hata); }
 .hesap-karti { padding: 14px 16px; border-radius: 16px; background: var(--yuzey-2); }
 .hesap-karti p { margin: 0; }
 .hesap-karti .metin-dugme { justify-self: start; margin-left: -0.85rem; }
