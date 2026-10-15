@@ -10,14 +10,14 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#F3F4F4" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#17181A" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="yazi.css?v=20261015111540">
-  <link rel="stylesheet" href="tokenlar.css?v=20261015111540">
-  <link rel="stylesheet" href="taban.css?v=20261015111540">
-  <link rel="stylesheet" href="bilesenler.css?v=20261015111540">
-  <link rel="stylesheet" href="hareket.css?v=20261015111540">
-  <link rel="stylesheet" href="site.css?v=20261015111540">
-  <script src="tema-erken.js?v=20261015111540"></script>
-  <script type="module" src="site.js?v=20261015111540"></script>
+  <link rel="stylesheet" href="yazi.css?v=20261015134241">
+  <link rel="stylesheet" href="tokenlar.css?v=20261015134241">
+  <link rel="stylesheet" href="taban.css?v=20261015134241">
+  <link rel="stylesheet" href="bilesenler.css?v=20261015134241">
+  <link rel="stylesheet" href="hareket.css?v=20261015134241">
+  <link rel="stylesheet" href="site.css?v=20261015134241">
+  <script src="tema-erken.js?v=20261015134241"></script>
+  <script type="module" src="site.js?v=20261015134241"></script>
 </head>
 <body data-sayfa="gizlilik">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -62,17 +62,25 @@
           <h2>2. Hangi verileri işliyoruz?</h2>
           <ul>
             <li><strong>Sohbet içerikleri:</strong> sunucuda saklanmaz ve günlüğe yazılmaz. Yalnızca tarayıcında (yerel depolama) tutulur; "Sohbeti sil" ile silinir. Cevap üretmek için mesajların sunucuya gönderilir ve cevap üretildikten sonra bellekten silinir.</li>
-            <li><strong>Beta hesabı:</strong> davet için e-posta adresin; kota için e-postanın özeti (tek yönlü şifrelenmiş değer), günlük kullanım sayacı ve son giriş zamanı.</li>
-            <li><strong>Geri bildirim (isteğe bağlı):</strong> verdiğin puan ve yazdığın not. Bir cevabı paylaşmayı <em>sen seçersen</em> o cevap ve ilgili sorun da alınır.</li>
+            <li><strong>Beta hesabı:</strong> davet koduyla açılan hesap için rastgele bir kimlik, davette yazılan ad notu, günlük kullanım sayacı, son giriş zamanı ve verdiğin izinler. Davet kodu ve oturum bilgisi yalnızca tek yönlü özet olarak tutulur.</li>
+            <li><strong>Cevap değerlendirme (kapatılabilir):</strong> izin açıksa (açık gelir; ilk girişte gösterilir) ya da bir cevabı kendin paylaşırsan o cevap, sorun ve önceki birkaç mesaj saklanır. Ayrıntı <a href="#geri-bildirim">6. bölümde</a>.</li>
             <li><strong>Teknik veriler:</strong> bağlantı sağlayıcılarımız (ör. barındırma ve ağ hizmeti) IP adresini bağlantı kurmak için geçici olarak görebilir. Reklam ya da izleme aracı kullanmıyoruz.</li>
           </ul>
           <h2>3. Amaçlar ve hukuki sebep</h2>
-          <p>Davet göndermek, kullanım sınırını uygulamak, hizmeti güvenli tutmak ve geri bildirimle Kaan'ı geliştirmek. Hukuki sebepler: bekleme listesi için açık rızan (KVKK m. 5/1); beta hesabı ve kullanım sınırı için hizmetin sunulmasıyla doğrudan ilgili olması (m. 5/2-c); hizmetin güvenliği ve kötüye kullanımın önlenmesi için meşru menfaat (m. 5/2-f).</p>
+          <p>Davet göndermek, kullanım sınırını uygulamak, hizmeti güvenli tutmak ve geri bildirimle Kaan'ı geliştirmek. Hukuki sebepler: bekleme listesi ve cevap değerlendirme için açık rızan (KVKK m. 5/1); beta hesabı ve kullanım sınırı için hizmetin sunulmasıyla doğrudan ilgili olması (m. 5/2-c); hizmetin güvenliği ve kötüye kullanımın önlenmesi için meşru menfaat (m. 5/2-f).</p>
           <h2>4. Saklama süresi</h2>
           <p>Bekleme listesi ve hesap verisi beta sona erene kadar, en geç 12 ay saklanır; sonra silinir. Listeden çıkmak ya da verini sildirmek için istediğin an yazabilirsin.</p>
           <h2>5. Aktarım</h2>
           <p>Hizmeti sunmak için yurt dışında bulunan sağlayıcılar kullanıyoruz: tanıtım sitesi için GitHub (barındırma), uygulamaya bağlantı için zrok/NetFoundry (tünel). İleride "Google ile giriş" eklenirse Google. Bu sağlayıcılar bağlantı için IP adresini görebilir. Sohbet içeriğin yalnızca cevap üretmek için sunucumuza iletilir; bu sağlayıcılarda saklanmaz. Yurt dışına aktarım, KVKK m. 9 çerçevesinde açık rızana dayanır.</p>
-          <h2>6. Haklarınız</h2>
+          <h2 id="geri-bildirim">6. Cevap değerlendirme (açık gelir, kapatılabilir)</h2>
+          <p>Uygulamada iki ayrı izin vardır. <strong>İkisi de açık gelir</strong>; ilk girişte ne anlama geldikleri bir pencerede gösterilir ve "Devam et" demeden önce ikisini de kapatabilirsin. Sen "Devam et" diyene kadar hiçbir sohbet içeriği saklanmaz. İzinleri istediğin an <em>Ayarlar → Hesap</em> bölümünden kapatabilirsin.</p>
+          <ul>
+            <li><strong>Cevapları değerlendirme için paylaş:</strong> açıkken biten her cevap; sorun, en çok 6 önceki mesaj, modelin sürümü ve cevap ayarlarıyla birlikte saklanır. Kapatırsan yalnızca 👍/👎 ya da "Paylaş" ile tek tek onayladığın cevaplar saklanır. Amaç Kaan'ın doğruluğunu ölçmek ve hatalarını bulmaktır. Yöneticiler bu kayıtları okuyup puanlar ve doğru cevabı yazabilir.</li>
+            <li><strong>Paylaştıklarım modeli eğitmek için de kullanılabilir:</strong> açıksa paylaştıkların (ve onlar için yazılan doğru cevaplar) Kaan'ın sonraki sürümlerini eğitmekte kullanılabilir. Kapalıysa yalnızca ölçüm için kullanılır, eğitime girmez. Kapatınca önceki paylaşımlarından da kalkar. Modelin yanlış cevapları hiçbir zaman eğitim hedefi yapılmaz.</li>
+          </ul>
+          <p>Kayıtlarda adın ya da hesap kimliğin bulunmaz; yalnızca tek yönlü bir özet tutulur. Veri ayrı bir dosyada, yalnızca kendi sunucumuzda ve yerel yedeklerde saklanır, buluta yüklenmez. Paylaştıklarını <em>Ayarlar → Hesap → Paylaştıkların</em> listesinden tek tek ya da topluca hemen silebilirsin; hesabın silinince hepsi silinir. Hukuki sebep: açık rızan (KVKK m. 5/1). Saklama: beta süresince, en geç 12 ay. Eğitimde kullanılmış bir örnek modelin içinden geri çıkarılamaz; ancak kaydı silinir ve sonraki eğitimlerde kullanılmaz.</p>
+          <p><strong>Kişisel bilgi yazma:</strong> telefon, adres, T.C. kimlik numarası gibi bilgileri mesajlarına yazma. Bu tür bilgiler dışa aktarmada ayrıca otomatik taranır ve şüpheli kayıtlar atılır.</p>
+          <h2>7. Haklarınız</h2>
           <p>6698 sayılı KVKK'nın 11. maddesi uyarınca verilerinin işlenip işlenmediğini öğrenme, düzeltme, silme ve itiraz hakların vardır. Başvuru: <a href="mailto:iletisim@tiyatrotist.com.tr">iletisim@tiyatrotist.com.tr</a>. Talebini en geç 30 gün içinde cevaplarız.</p>
           <p class="not-kucuk" style="text-align:left">Bu metin hukuki danışmanlık değildir.</p>
         </div>

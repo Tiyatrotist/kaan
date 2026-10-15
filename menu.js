@@ -1,6 +1,6 @@
 // Tek tip açılır menü: efor seçici, sohbet menüsü (başlıktaki ⋯) ve listedeki ⋯ menüsü aynı bileşeni kullanır.
 // ogeler: {baslik} | {ayrac:true} | {bilgi:{ad,not}} | {ad, aciklama?, simge?, secili?, tehlike?, onay?, odak?, eylem()}
-import { el, simge, azHareket } from './gorunum.js?v=20261015111540';
+import { el, simge, azHareket } from './gorunum.js?v=20261015134241';
 
 let acik = null;
 
