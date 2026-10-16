@@ -1,7 +1,7 @@
 // Tanıtım sitesi davranışı: logo (taş dolgulu), tema, mobil menü, belirme animasyonu, canlı durum, beta formları.
-import { kaanYazisi } from './gorunum.js?v=20261015204540';
-import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261015204540';
-import { menuAc } from './menu.js?v=20261015204540';
+import { kaanYazisi } from './gorunum.js?v=20261016200013';
+import { temaDegistir, etkinTema, temaBaslat } from './tema.js?v=20261016200013';
+import { menuAc } from './menu.js?v=20261016200013';
 
 // ---- Ayarlar (yayın aşamasında değişecek)
 const UYGULAMA_ADRESI = 'https://kaan.tiyatrotist.com.tr/'; // yayında: uygulamanın tünel/alan adı adresi
@@ -18,6 +18,7 @@ $('alt_marka_yazi')?.append(kaanYazisi({ canli: false }));
 $('kahraman_logo')?.append(kaanYazisi({ durum: 'gir', kayma: true }));
 $('onizleme_logo')?.append(kaanYazisi({ canli: false }));
 document.querySelectorAll('[data-uygulama]').forEach((a) => { a.href = UYGULAMA_ADRESI; });
+document.querySelectorAll('[data-basvuru]').forEach((a) => { a.href = `${UYGULAMA_ADRESI}basvuru/`; });
 
 // ---- Tema düğmesi (uygulamadakiyle aynı daire geçişi)
 $('tema_dugme')?.addEventListener('click', (o) => {
